@@ -1,0 +1,85 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">한가람고등학교 학생회장단 투표</span>
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-layout--fixed-tabs">
+            <a href="#choose2" id="choose2-bar" class="mdl-layout__tab is-active"><i id="done-icon2" class="material-icons done" hidden>done</i>2학년 회장단</a>
+            {{#firstGrade}}
+            <a href="#choose1M" id="choose1M-bar" class="mdl-layout__tab"><i id="done-icon1M" class="material-icons done" hidden>done</i>1학년 남자 부회장</a>
+            <a href="#choose1F" id="choose1F-bar" class="mdl-layout__tab"><i id="done-icon1F" class="material-icons done" hidden>done</i>1학년 여자 부회장</a>
+            {{/firstGrade}}
+        </div>
+    </header>
+    <main class="mdl-layout__content flexcolumn column-center">
+        <form id="vote-form" class="marginauto">
+            <section class="mdl-layout__tab-panel is-active" id="choose2">
+                <div class="page-content vote-content">
+                        {{#cache.candidateNames.candidateNames2}}
+                        <div class="mdl-card mdl-shadow--2dp candidate-card">
+                            <div class="mdl-card__media mdl-card--expand">
+                                <img src="/students/강다혜.jpg">
+                            </div>
+                            <div class="mdl-card__title mdl-card--expand">
+                                <h2 class="mdl-card__title-text candidate-name">{{ . }}</h2>
+                            </div>
+                            <div class="mdl-card-actions mdl-card--border">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect candidate-radio" for="candidateNameToVote2-{{ . }}">
+                                    <input type="radio" id="candidateNameToVote2-{{ . }}" class="mdl-radio__button vote-radio" name="candidateNameToVote2" value="{{ . }}">
+                                </label>
+                            </div>
+                        </div>
+                        {{/cache.candidateNames.candidateNames2}}
+                </div>
+            </section>
+            {{#firstGrade}}
+            <section class="mdl-layout__tab-panel" id="choose1M">
+                <div class="page-content vote-content">
+                        {{#cache.candidateNames.candidateNames1M}}
+                        <div class="mdl-card mdl-shadow--2dp candidate-card">
+                            <div class="mdl-card__media mdl-card--expand">
+                                <img src="/students/강다혜.jpg">
+                            </div>
+                            <div class="mdl-card__title mdl-card--expand">
+                                <h2 class="mdl-card__title-text candidate-name">{{ . }}</h2>
+                            </div>
+                            <div class="mdl-card-actions mdl-card--border">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect candidate-radio" for="candidateNameToVote1M-{{ . }}">
+                                    <input type="radio" id="candidateNameToVote1M-{{ . }}" class="mdl-radio__button vote-radio" name="candidateNameToVote1M" value="{{ . }}">
+                                </label>
+                            </div>
+                        </div>
+                        {{/cache.candidateNames.candidateNames1M}}
+                </div>
+            </section>
+            <section class="mdl-layout__tab-panel" id="choose1F">
+                <div class="page-content vote-content">
+                        {{#cache.candidateNames.candidateNames1F}}
+                        <div class="mdl-card mdl-shadow--2dp candidate-card">
+                            <div class="mdl-card__media mdl-card--expand">
+                                <img src="/students/강다혜.jpg">
+                            </div>
+                            <div class="mdl-card__title mdl-card--expand">
+                                <h2 class="mdl-card__title-text candidate-name">{{ . }}</h2>
+                            </div>
+                            <div class="mdl-card-actions mdl-card--border">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect candidate-radio" for="candidateNameToVote1F-{{ . }}">
+                                    <input type="radio" id="candidateNameToVote1F-{{ . }}" class="mdl-radio__button vote-radio" name="candidateNameToVote1F" value="{{ . }}">
+                                </label>
+                            </div>
+                        </div>
+                        {{/cache.candidateNames.candidateNames1F}}
+                </div>
+            </section>
+            {{/firstGrade}}
+        </form>
+        <div class="vote-actions">
+            <button id="vote-submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" disabled>모두 투표하기</button>
+            <button id="vote-back" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">로그인 화면으로 돌아가기</button>
+        </div>
+    </main>
+</div>
+<div id="vote-snackbar" class="mdl-js-snackbar mdl-snackbar">
+    <div id="vote-snackbar-text" class="mdl-snackbar__text"></div>
+    <button class="mdl-snackbar__action" type="button"></button>
+</div>

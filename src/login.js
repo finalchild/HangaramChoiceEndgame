@@ -1,5 +1,6 @@
 const keyInput = document.getElementById('login-key');
 const keyError = document.getElementById('key-error');
+const keyInputContainer = document.getElementById('key-input-container');
 keyInput.addEventListener('input', async function (e) {
     if (!keyInput.value || keyInput.value.length !== 8) {
         return;
@@ -16,16 +17,16 @@ keyInput.addEventListener('input', async function (e) {
 function checkKeyString() {
     const keyString = keyInput.value;
     if (!keyInput.value || keyInput.value.length !== 8) {
-        keyInput.setCustomValidity('');
         keyInput.setCustomValidity('8자리의 키를 입력해 주세요!');
         keyError.textContent = '8자리의 키를 입력해 주세요!';
+        keyInputContainer.classList.add('is-invalid');
         return false;
     }
     const keyWithCheckDigit = parseInt(keyInput.value, 10);
     if (!isValidKeyWithCheckDigit(keyWithCheckDigit)) {
-        keyInput.setCustomValidity('');
         keyInput.setCustomValidity('확인 숫자가 잘못되었습니다!');
         keyError.textContent = '확인 숫자가 잘못되었습니다!';
+        keyInputContainer.classList.add('is-invalid');
         return false;
     }
     return true;
@@ -50,9 +51,9 @@ async function login(key) {
     const response = await fetch(request);
     const result = await response.json();
     if (typeof result.error === 'string') {
-        keyInput.setCustomValidity('');
         keyInput.setCustomValidity(result.error);
         keyError.textContent = result.error;
+        keyInputContainer.classList.add('is-invalid');
         return
     }
     sessionStorage.setItem('key', key.toString());

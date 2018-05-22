@@ -1,0 +1,139 @@
+body {
+    margin: 30px;
+}
+
+.login, .vote {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login:before, .login:after, .vote:before, .vote:after, .column-center:before, .column-center:after {
+    flex-grow: 1;
+    content: '';
+}
+
+.login:after, .vote:after {
+    content: '© 2017 Overflow';
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 11pt;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-header-div {
+    padding: 0 0 0 55px !important;
+}
+
+.account_circle {
+    vertical-align: text-bottom;
+}
+
+.login-container {
+    width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 30px;
+
+    border: outset;
+}
+
+.account_circle {
+    margin-right: 5px;
+}
+
+.vote-content {
+    overflow-x: auto;
+    overflow-y: visible;
+    text-align: center;
+    white-space: nowrap;
+    width: 100vw;
+}
+
+.hc-radio-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.hc-radio-button {
+    margin: 10px;
+}
+
+.vote-paper {
+    border: outset;
+    width: 500px;
+    padding: 30px 30px 15px;
+}
+
+.vote-actions {
+    text-align: right;
+}
+
+.result-card {
+    margin: 10px auto;
+}
+
+.hc-table {
+    width: 30vw;
+    height: 200px;
+}
+
+.marginauto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.flexrow {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+.flexcolumn {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.width50 {
+    width: 50% !important;
+}
+
+.margin10 {
+    margin: 10px !important;
+}
+
+.initialize-content {
+    width: 100%;
+}
+
+.candidate-card {
+    width: 174px !important;
+    /* height: 350px; */
+    margin-left: 100px;
+    margin-right: 100px;
+    display: inline-block !important;
+    overflow: visible !important;
+}
+
+.vote-layout-spacer {
+    flex-grow: 1;
+    display: inline-block;
+}
+
+.candidate-name {
+    text-align: center;
+    margin: auto !important;
+}
+
+.candidate-radio {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 10px !important;
+    display: block !important;
+    width: 0;
+}

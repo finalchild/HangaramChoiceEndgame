@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="utf-8">
+    <title>한가람의 선택</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</head>
+<body>
+<div class="login">
+    <div class="login-container mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="login-header-div mdl-layout__header-row">
+                <span class="mdl-layout-title">한가람고 학생회장단 투표</span>
+            </div>
+        </header>
+        <br>
+        <form class="flexcolumn marginauto">
+            <div class="marginauto">
+                <label for="login-key"><i class="material-icons account_circle">account_circle</i></label>
+                <div id="key-input-container" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="[0-9]{0,8}" id="login-key" autocomplete="off" maxlength="8">
+                    <label class="mdl-textfield__label" for="login-key">학생 키</label>
+                    <span class="mdl-textfield__error" id="key-error">잘못된 학생 키입니다!</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="login.js"></script>
+</body>
+</html>
