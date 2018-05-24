@@ -52,15 +52,6 @@ body {
     width: 100vw;
 }
 
-.hc-radio-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.hc-radio-button {
-    margin: 10px;
-}
-
 .vote-paper {
     border: outset;
     width: 500px;
@@ -68,16 +59,12 @@ body {
 }
 
 .vote-actions {
-    text-align: right;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .result-card {
     margin: 10px auto;
-}
-
-.hc-table {
-    width: 30vw;
-    height: 200px;
 }
 
 .marginauto {
@@ -114,10 +101,23 @@ body {
 .candidate-card {
     width: 174px !important;
     /* height: 350px; */
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 7vw;
+    margin-right: 7vw;
     display: inline-block !important;
-    overflow: visible !important;
+    /* overflow: visible !important; */
+}
+
+.candidate2-card {
+    width: 522px !important;
+    /* height: 350px; */
+    margin-left: 3vw;
+    margin-right: 3vw;
+    display: inline-block !important;
+    /* overflow: visible !important; */
+}
+
+.candidate2-card > .mdl-card__media {
+    font-size: 0;
 }
 
 .vote-layout-spacer {

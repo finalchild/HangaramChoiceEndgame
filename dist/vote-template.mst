@@ -15,27 +15,31 @@
         <form id="vote-form" class="marginauto">
             <section class="mdl-layout__tab-panel is-active" id="choose2">
                 <div class="page-content vote-content">
-                        {{#cache.candidateNames.candidateNames2}}
-                        <div class="mdl-card mdl-shadow--2dp candidate-card">
+                        {{#candidateNames2Objects}}
+                        <div class="mdl-card mdl-shadow--2dp candidate2-card">
                             <div class="mdl-card__media mdl-card--expand">
+                                {{#split}}
                                 <img src="/students/강다혜.jpg">
+                                {{/split}}
                             </div>
                             <div class="mdl-card__title mdl-card--expand">
-                                <h2 class="mdl-card__title-text candidate-name">{{ . }}</h2>
+                                <h2 class="mdl-card__title-text candidate-name">{{ original }}</h2>
                             </div>
                             <div class="mdl-card-actions mdl-card--border">
-                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect candidate-radio" for="candidateNameToVote2-{{ . }}">
-                                    <input type="radio" id="candidateNameToVote2-{{ . }}" class="mdl-radio__button vote-radio" name="candidateNameToVote2" value="{{ . }}">
+                                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect candidate-radio" for="candidateNameToVote2-{{ original }}">
+                                    <input type="radio" id="candidateNameToVote2-{{ original }}" class="mdl-radio__button vote-radio" name="candidateNameToVote2" value="{{ original }}">
                                 </label>
                             </div>
                         </div>
-                        {{/cache.candidateNames.candidateNames2}}
+                        {{/candidateNames2Objects}}
+                        {{#abstention2}}
+                        {{/abstention2}}
                 </div>
             </section>
             {{#firstGrade}}
             <section class="mdl-layout__tab-panel" id="choose1M">
                 <div class="page-content vote-content">
-                        {{#cache.candidateNames.candidateNames1M}}
+                        {{#candidateNames1M}}
                         <div class="mdl-card mdl-shadow--2dp candidate-card">
                             <div class="mdl-card__media mdl-card--expand">
                                 <img src="/students/강다혜.jpg">
@@ -49,12 +53,14 @@
                                 </label>
                             </div>
                         </div>
-                        {{/cache.candidateNames.candidateNames1M}}
+                        {{/candidateNames1M}}
+                        {{#abstention1M}}
+                        {{/abstention1M}}
                 </div>
             </section>
             <section class="mdl-layout__tab-panel" id="choose1F">
                 <div class="page-content vote-content">
-                        {{#cache.candidateNames.candidateNames1F}}
+                        {{#candidateNames1F}}
                         <div class="mdl-card mdl-shadow--2dp candidate-card">
                             <div class="mdl-card__media mdl-card--expand">
                                 <img src="/students/강다혜.jpg">
@@ -68,7 +74,9 @@
                                 </label>
                             </div>
                         </div>
-                        {{/cache.candidateNames.candidateNames1F}}
+                        {{/candidateNames1F}}
+                        {{#abstention1F}}
+                        {{/abstention1F}}
                 </div>
             </section>
             {{/firstGrade}}

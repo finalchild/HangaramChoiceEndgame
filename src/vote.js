@@ -37,8 +37,32 @@ async function loadTemplate() {
     const response = await fetch(new Request('vote-template.mst'));
     const template = await response.text();
 
+    const candidateNames1M = cache.candidateNames.candidateNames1M;
+    const candidateNames1F = cache.candidateNames.candidateNames1F;
+    const candidateNames2 = cache.candidateNames.candidateNames2;
+    const abstention1M = candidateNames1M.includes('기권');
+    const abstention1F = candidateNames1F.includes('기권');
+    const abstention2 = candidateNames2.includes('기권');
+
+
+    if (abstention1M) {
+        remove(candidateNames1M, '기권');
+    }
+    if (abstention1F) {
+        remove(candidateNames1F, '기권');
+    }
+    if (abstention2) {
+        remove(candidateNames2, '기권');
+    }
+
+    const candidateNames2Objects = candidateNames2.map(e => ({original: e, split: e.split(', ')}));
     const rendered = Mustache.render(template, {
-        cache: cache,
+        candidateNames1M,
+        candidateNames1F,
+        candidateNames2Objects,
+        abstention1M,
+        abstention1F,
+        abstention2,
         firstGrade: grade === 1
     });
 
@@ -166,4 +190,9 @@ function canVote() {
         }
     }
     return true;
+}
+
+function remove(array, element) {
+    const index = array.indexOf(element);
+    array.splice(index, 1);
 }
