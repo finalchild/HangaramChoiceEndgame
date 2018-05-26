@@ -1,3 +1,5 @@
+import * as Mustache from "mustache";
+
 const keyInput = document.getElementById('login-key');
 const keyError = document.getElementById('key-error');
 const keyInputContainer = document.getElementById('key-input-container');
@@ -61,6 +63,9 @@ async function login(key) {
     if (result.cache) {
         sessionStorage.setItem('cache', JSON.stringify(result.cache));
     }
+
+    sessionStorage.setItem('rendered', await loadTemplate(result.cache, result.grade));
+
     location = 'vote.html';
 }
 
@@ -80,4 +85,39 @@ function isValidMod10(number) {
         index++;
     }
     return sum % 10 === 0;
+}
+
+async function loadTemplate(cache, grade) {
+    const response = await fetch(new Request('vote-template.mst'));
+    const template = await response.text();
+
+    const candidateNames1M = cache.candidateNames.candidateNames1M;
+    const candidateNames1F = cache.candidateNames.candidateNames1F;
+    const candidateNames2 = cache.candidateNames.candidateNames2;
+    const abstention1M = candidateNames1M.includes('기권');
+    const abstention1F = candidateNames1F.includes('기권');
+    const abstention2 = candidateNames2.includes('기권');
+
+    if (abstention1M) {
+        remove(candidateNames1M, '기권');
+    }
+    if (abstention1F) {
+        remove(candidateNames1F, '기권');
+    }
+    if (abstention2) {
+        remove(candidateNames2, '기권');
+    }
+
+    const candidateNames2Objects = candidateNames2.map(e => ({original: e, split: e.split(', ')}));
+    const rendered = Mustache.render(template, {
+        candidateNames1M,
+        candidateNames1F,
+        candidateNames2Objects,
+        abstention1M,
+        abstention1F,
+        abstention2,
+        firstGrade: grade === 1
+    });
+
+    return rendered;
 }

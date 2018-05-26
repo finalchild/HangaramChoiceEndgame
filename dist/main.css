@@ -137,3 +137,13 @@ body {
     display: block !important;
     width: 0;
 }
+
+.mdl-radio {
+    padding-left: 15px !important;
+}
+
+.student-img {
+    height: 222px;
+    width: 174px;
+    object-fit: cover;
+}
