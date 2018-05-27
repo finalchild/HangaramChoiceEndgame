@@ -3,8 +3,8 @@ const path = require('path');
 module.exports = {
     mode: 'production',
     entry: {
-        login: ['babel-polyfill', './src/login.js'],
-        vote: ['babel-polyfill', './src/vote.js']
+        login: ['babel-polyfill', 'whatwg-fetch', './src/login.js'],
+        vote: ['babel-polyfill', 'whatwg-fetch', './src/vote.js']
     },
     output: {
         filename: '[name].js',

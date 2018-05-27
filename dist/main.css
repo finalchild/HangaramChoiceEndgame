@@ -18,16 +18,13 @@ body {
     content: '© 2017 Overflow';
     color: rgba(0, 0, 0, 0.54);
     font-size: 11pt;
+    text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
 .login-header-div {
     padding: 0 0 0 55px !important;
-}
-
-.account_circle {
-    vertical-align: text-bottom;
 }
 
 .login-container {
@@ -41,6 +38,7 @@ body {
 }
 
 .account_circle {
+    vertical-align: text-bottom;
     margin-right: 5px;
 }
 
