@@ -18,7 +18,6 @@ sessionStorage.removeItem('rendered');
 
 const voteSubmitButton = document.getElementById('vote-submit');
 const voteBackButton = document.getElementById('vote-back');
-const voteForm = document.getElementById('vote-form');
 const choose2Tab = document.getElementById('choose2');
 const choose1MTab = document.getElementById('choose1M');
 const choose1FTab = document.getElementById('choose1F');
@@ -30,14 +29,30 @@ const doneIcon1M = document.getElementById('done-icon1M');
 const doneIcon1F = document.getElementById('done-icon1F');
 const voteRadioButtons = document.getElementsByClassName('vote-radio');
 const voteSnackbar = document.getElementById('vote-snackbar');
-const voteSnackbarText = document.getElementById('vote-snackbar-text');
 
 voteSubmitButton.addEventListener('click', async function(e) {
-    const formData = new FormData(voteForm);
-
-    const candidateNameToVote2 = formData.get('candidateNameToVote2');
-    const candidateNameToVote1M = formData.get('candidateNameToVote1M');
-    const candidateNameToVote1F = formData.get('candidateNameToVote1F');
+    const selectedRadioButtons = Array.prototype.filter.call(voteRadioButtons, e => e.checked);
+    const selectedRadioButton2 = selectedRadioButtons.find(e => e.name === 'candidateNameToVote2');
+    const selectedRadioButton1M = selectedRadioButtons.find(e => e.name === 'candidateNameToVote1M');
+    const selectedRadioButton1F = selectedRadioButtons.find(e => e.name === 'candidateNameToVote1F');
+    let candidateNameToVote2;
+    let candidateNameToVote1M;
+    let candidateNameToVote1F;
+    if (typeof selectedRadioButton2 !== 'undefined') {
+        candidateNameToVote2 = selectedRadioButton2.value;
+    } else {
+        candidateNameToVote2 = undefined;
+    }
+    if (typeof selectedRadioButton1M !== 'undefined') {
+        candidateNameToVote1M = selectedRadioButton1M.value;
+    } else {
+        candidateNameToVote1M = undefined;
+    }
+    if (typeof selectedRadioButton1F !== 'undefined') {
+        candidateNameToVote1F = selectedRadioButton1F.value;
+    } else {
+        candidateNameToVote1F = undefined;
+    }
     if (!candidateNameToVote2) {
         choose2Tab.classList.add('is-active');
         choose2Bar.classList.add('is-active');
@@ -101,11 +116,28 @@ voteBackButton.addEventListener('click', async function(e) {
 
 Array.prototype.forEach.call(voteRadioButtons, voteRadioButton => {
     voteRadioButton.addEventListener('click', async function(e) {
-        const formData = new FormData(voteForm);
-
-        const candidateNameToVote2 = formData.get('candidateNameToVote2');
-        const candidateNameToVote1M = formData.get('candidateNameToVote1M');
-        const candidateNameToVote1F = formData.get('candidateNameToVote1F');
+        const selectedRadioButtons = Array.prototype.filter.call(voteRadioButtons, e => e.checked);
+        const selectedRadioButton2 = selectedRadioButtons.find(e => e.name === 'candidateNameToVote2');
+        const selectedRadioButton1M = selectedRadioButtons.find(e => e.name === 'candidateNameToVote1M');
+        const selectedRadioButton1F = selectedRadioButtons.find(e => e.name === 'candidateNameToVote1F');
+        let candidateNameToVote2;
+        let candidateNameToVote1M;
+        let candidateNameToVote1F;
+        if (typeof selectedRadioButton2 !== 'undefined') {
+            candidateNameToVote2 = selectedRadioButton2.value;
+        } else {
+            candidateNameToVote2 = undefined;
+        }
+        if (typeof selectedRadioButton1M !== 'undefined') {
+            candidateNameToVote1M = selectedRadioButton1M.value;
+        } else {
+            candidateNameToVote1M = undefined;
+        }
+        if (typeof selectedRadioButton1F !== 'undefined') {
+            candidateNameToVote1F = selectedRadioButton1F.value;
+        } else {
+            candidateNameToVote1F = undefined;
+        }
 
         doneIcon2.hidden = !candidateNameToVote2;
         if (grade === 1) {
@@ -119,11 +151,29 @@ Array.prototype.forEach.call(voteRadioButtons, voteRadioButton => {
 
 function canVote() {
     if (voted) return false;
-    const formData = new FormData(voteForm);
+    const selectedRadioButtons = Array.prototype.filter.call(voteRadioButtons, e => e.checked);
+    const selectedRadioButton2 = selectedRadioButtons.find(e => e.name === 'candidateNameToVote2');
+    const selectedRadioButton1M = selectedRadioButtons.find(e => e.name === 'candidateNameToVote1M');
+    const selectedRadioButton1F = selectedRadioButtons.find(e => e.name === 'candidateNameToVote1F');
+    let candidateNameToVote2;
+    let candidateNameToVote1M;
+    let candidateNameToVote1F;
+    if (typeof selectedRadioButton2 !== 'undefined') {
+        candidateNameToVote2 = selectedRadioButton2.value;
+    } else {
+        candidateNameToVote2 = undefined;
+    }
+    if (typeof selectedRadioButton1M !== 'undefined') {
+        candidateNameToVote1M = selectedRadioButton1M.value;
+    } else {
+        candidateNameToVote1M = undefined;
+    }
+    if (typeof selectedRadioButton1F !== 'undefined') {
+        candidateNameToVote1F = selectedRadioButton1F.value;
+    } else {
+        candidateNameToVote1F = undefined;
+    }
 
-    const candidateNameToVote2 = formData.get('candidateNameToVote2');
-    const candidateNameToVote1M = formData.get('candidateNameToVote1M');
-    const candidateNameToVote1F = formData.get('candidateNameToVote1F');
     if (!candidateNameToVote2) {
         return false;
     }
