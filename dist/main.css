@@ -98,24 +98,43 @@ body {
 
 .candidate-card {
     width: 174px !important;
-    /* height: 350px; */
-    margin-left: 7vw;
-    margin-right: 7vw;
+    margin-left: 4vw;
+    margin-right: 4vw;
     display: inline-block !important;
-    /* overflow: visible !important; */
 }
 
 .candidate2-card {
     width: 522px !important;
-    /* height: 350px; */
-    margin-left: 3vw;
-    margin-right: 3vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
     display: inline-block !important;
-    /* overflow: visible !important; */
 }
 
 .candidate2-card > .mdl-card__media {
     font-size: 0;
+}
+
+.abstention-card {
+    margin-bottom: 75px;
+    width: 155px !important;
+}
+
+.abstention-card2 {
+    margin-bottom: 75px;
+    width: 155px !important;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    display: inline-block !important;
+}
+
+.abstention-card > .mdl-card__title > .mdl-card__title-text {
+    align-items: center;
+    height: 154px;
+}
+
+.abstention-card2 > .mdl-card__title > .mdl-card__title-text {
+    align-items: center;
+    height: 154px;
 }
 
 .vote-layout-spacer {

@@ -121,3 +121,8 @@ async function loadTemplate(cache, grade) {
 
     return rendered;
 }
+
+function remove(array, element) {
+    const index = array.indexOf(element);
+    array.splice(index, 1);
+}
