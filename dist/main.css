@@ -103,6 +103,10 @@ body {
     display: inline-block !important;
 }
 
+.candidate-card > .mdl-card__media {
+    background-color: lightgray;
+}
+
 .candidate2-card {
     width: 522px !important;
     margin-left: 1vw;
@@ -111,6 +115,7 @@ body {
 }
 
 .candidate2-card > .mdl-card__media {
+    background-color: lightgray;
     font-size: 0;
 }
 
