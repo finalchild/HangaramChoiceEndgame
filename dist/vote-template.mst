@@ -19,7 +19,7 @@
                     <div class="mdl-card mdl-shadow--2dp candidate2-card animated fadeInDown">
                         <div class="mdl-card__media mdl-card--expand">
                             {{#split}}
-                            <img class="student-img" src="/students/강다혜.jpg">
+                            <img class="student-img" src="/students/{{ . }}.jpg">
                             {{/split}}
                         </div>
                         <div class="mdl-card__title mdl-card--expand">
@@ -52,7 +52,7 @@
                     {{#candidateNames1M}}
                     <div class="mdl-card mdl-shadow--2dp candidate-card animated fadeInDown">
                         <div class="mdl-card__media mdl-card--expand">
-                            <img class="student-img" src="/students/강다혜.jpg">
+                            <img class="student-img" src="/students/{{ . }}.jpg">
                         </div>
                         <div class="mdl-card__title mdl-card--expand">
                             <h2 class="mdl-card__title-text candidate-name">{{ . }}</h2>
@@ -83,7 +83,7 @@
                     {{#candidateNames1F}}
                     <div class="mdl-card mdl-shadow--2dp candidate-card animated fadeInDown">
                         <div class="mdl-card__media mdl-card--expand">
-                            <img class="student-img" src="/students/강다혜.jpg">
+                            <img class="student-img" src="/students/{{ . }}.jpg">
                         </div>
                         <div class="mdl-card__title mdl-card--expand">
                             <h2 class="mdl-card__title-text candidate-name">{{ . }}</h2>
